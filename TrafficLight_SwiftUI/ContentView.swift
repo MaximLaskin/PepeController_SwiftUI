@@ -59,13 +59,11 @@ struct ContentView: View {
             currentPepe = PepeController.angry
         }
     }
-
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-
     }
 }
 
