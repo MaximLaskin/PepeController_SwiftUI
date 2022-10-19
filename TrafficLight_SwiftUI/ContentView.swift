@@ -12,47 +12,56 @@ enum PepeController {
 }
 
 struct ContentView: View {
-    @State var angryOpacity = 0.3
-    @State var calmOpacity = 0.3
-    @State var funnyOpacity = 0.3
+    @State private var angryOpacity = false
+    @State private var calmOpacity = false
+    @State private var funnyOpacity = false
 
-    @State var currentPepe = PepeController.funny
+    @State private var statusButton = false
+
+    @State private var currentPepe = PepeController.funny
 
     var body: some View {
-        VStack{
-            VStack {
-                ImageView(image: "angryPepe", opacity: angryOpacity)
-                ImageView(image: "calmPepe", opacity: calmOpacity)
-                ImageView(image: "funnyPepe", opacity: funnyOpacity)
-            }
-            Spacer()
-            Button {
-                buttonPressed()
-            } label: {
-                Text("Go PEPE")
-                    .padding()
-                    .tint(.white)
-                    .background(.blue)
-                    .cornerRadius(10)
+        ZStack {
+            LinearGradient(colors: [.blue, .indigo, .pink], startPoint: .top, endPoint: .bottom)
+            VStack{
+                Spacer()
+                VStack {
+                    ImageView(image: "angryPepe", opacity: angryOpacity)
+                    ImageView(image: "calmPepe", opacity: calmOpacity)
+                    ImageView(image: "funnyPepe", opacity: funnyOpacity)
+                }
+                Spacer()
+                Button {
+                    buttonPressed()
+                } label: {
+                    Text(statusButton ? "Go PEPE" : "Don't Touch Me")
+                        .frame(width: 150, height: 35)
+                        .tint(.white)
+                        .background(statusButton ? .blue : .purple)
+                        .cornerRadius(10)
+                        .shadow(radius: 5)
+                }
+                Spacer()
             }
             .padding()
-        }
+        }.ignoresSafeArea()
     }
 
     func buttonPressed() {
+        statusButton = true
+
         switch currentPepe {
         case .angry:
-            angryOpacity = 0.3
-            calmOpacity = 1
+            angryOpacity = false
+            calmOpacity.toggle()
             currentPepe = PepeController.calm
         case .calm:
-            calmOpacity = 0.3
-            funnyOpacity = 1
-
+            calmOpacity.toggle()
+            funnyOpacity.toggle()
             currentPepe = PepeController.funny
         case .funny:
-            angryOpacity = 1
-            funnyOpacity = 0.3
+            angryOpacity.toggle()
+            funnyOpacity = false
             currentPepe = PepeController.angry
         }
     }
