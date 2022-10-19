@@ -12,6 +12,7 @@
 		437EC43C28FEB8710078839D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 437EC43B28FEB8710078839D /* Assets.xcassets */; };
 		437EC43F28FEB8710078839D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 437EC43E28FEB8710078839D /* Preview Assets.xcassets */; };
 		437EC44C28FEDA780078839D /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437EC44B28FEDA780078839D /* ImageView.swift */; };
+		437EC44E28FFEC210078839D /* ImageTransparantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437EC44D28FFEC210078839D /* ImageTransparantView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		437EC43B28FEB8710078839D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		437EC43E28FEB8710078839D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		437EC44B28FEDA780078839D /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
+		437EC44D28FFEC210078839D /* ImageTransparantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTransparantView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 				437EC43728FEB86F0078839D /* TrafficLight_SwiftUIApp.swift */,
 				437EC43928FEB86F0078839D /* ContentView.swift */,
 				437EC44B28FEDA780078839D /* ImageView.swift */,
+				437EC44D28FFEC210078839D /* ImageTransparantView.swift */,
 				437EC43B28FEB8710078839D /* Assets.xcassets */,
 				437EC43D28FEB8710078839D /* Preview Content */,
 			);
@@ -141,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				437EC44C28FEDA780078839D /* ImageView.swift in Sources */,
+				437EC44E28FFEC210078839D /* ImageTransparantView.swift in Sources */,
 				437EC43A28FEB86F0078839D /* ContentView.swift in Sources */,
 				437EC43828FEB86F0078839D /* TrafficLight_SwiftUIApp.swift in Sources */,
 			);
