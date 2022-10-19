@@ -9,18 +9,19 @@ import SwiftUI
 
 struct ImageView: View {
      let image: String
+    let opacity: Double
 
     var body: some View {
         Image(image)
             .resizable()
             .scaledToFill()
             .frame(width: 100, height: 100)
-            .opacity(0.3)
+            .opacity(opacity)
     }
 }
 
 struct ImageView_Previews: PreviewProvider {
     static var previews: some View {
-        ImageView(image: "funnyPepe")
+        ImageView(image: "funnyPepe", opacity: 0.3)
     }
 }

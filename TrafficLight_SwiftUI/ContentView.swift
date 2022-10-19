@@ -12,27 +12,24 @@ enum PepeController {
 }
 
 struct ContentView: View {
-    @State var angryPepeImage = ImageView(image: "angryPepe")
-    @State var calmPepeImage = ImageView(image: "calmPepe")
-    @State var funnyPepeImage = ImageView(image: "funnyPepe")
+    @State var angryOpacity = 0.3
+    @State var calmOpacity = 0.3
+    @State var funnyOpacity = 0.3
 
-    private var opacityIsOn = 1.0
-    private var opacityIsOff = 0.3
+    @State var currentPepe = PepeController.funny
 
-    @State var currentPepe = PepeController.angry
-@State var name = 0
     var body: some View {
         VStack{
             VStack {
-                angryPepeImage
-                calmPepeImage
-                funnyPepeImage
+                ImageView(image: "angryPepe", opacity: angryOpacity)
+                ImageView(image: "calmPepe", opacity: calmOpacity)
+                ImageView(image: "funnyPepe", opacity: funnyOpacity)
             }
             Spacer()
             Button {
                 buttonPressed()
             } label: {
-                Text("Go MEME")
+                Text("Go PEPE")
                     .padding()
                     .tint(.white)
                     .background(.blue)
@@ -43,19 +40,19 @@ struct ContentView: View {
     }
 
     func buttonPressed() {
-
         switch currentPepe {
         case .angry:
-            angryPepeImage.opacity(opacityIsOff)
-            calmPepeImage.opacity(opacityIsOn)
+            angryOpacity = 0.3
+            calmOpacity = 1
             currentPepe = PepeController.calm
         case .calm:
-            calmPepeImage.opacity(opacityIsOff)
-            funnyPepeImage.opacity(opacityIsOn)
+            calmOpacity = 0.3
+            funnyOpacity = 1
+
             currentPepe = PepeController.funny
         case .funny:
-            funnyPepeImage.opacity(opacityIsOff)
-            angryPepeImage.opacity(opacityIsOn)
+            angryOpacity = 1
+            funnyOpacity = 0.3
             currentPepe = PepeController.angry
         }
     }
