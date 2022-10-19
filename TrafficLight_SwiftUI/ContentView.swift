@@ -16,7 +16,7 @@ struct ContentView: View {
     @State private var calmOpacity = false
     @State private var funnyOpacity = false
 
-    @State private var statusButton = false
+    @State private var status = false
 
     @State private var currentPepe = PepeController.funny
 
@@ -34,10 +34,10 @@ struct ContentView: View {
                 Button {
                     buttonPressed()
                 } label: {
-                    Text(statusButton ? "Go PEPE" : "Don't Touch Me")
+                    Text(status ? "Go PEPE" : "Don't Touch Me")
                         .frame(width: 150, height: 35)
                         .tint(.white)
-                        .background(statusButton ? .blue : .purple)
+                        .background(status ? .blue : .purple)
                         .cornerRadius(10)
                         .shadow(radius: 5)
                 }
@@ -48,7 +48,7 @@ struct ContentView: View {
     }
 
     func buttonPressed() {
-        statusButton = true
+        status = true
 
         switch currentPepe {
         case .angry:
