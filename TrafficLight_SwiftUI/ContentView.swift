@@ -8,17 +8,14 @@
 import SwiftUI
 
 enum PepeController {
-    case angry, calm, funny
+    case angry, calm, funny, off
 }
 
 struct ContentView: View {
-    @State private var angryOpacity = false
-    @State private var calmOpacity = false
-    @State private var funnyOpacity = false
 
     @State private var status = false
 
-    @State private var currentPepe = PepeController.funny
+    @State private var currentPepe = PepeController.off
 
     var body: some View {
         ZStack {
@@ -26,9 +23,9 @@ struct ContentView: View {
             VStack{
                 Spacer()
                 VStack {
-                    ImageView(image: "angryPepe", opacity: angryOpacity)
-                    ImageView(image: "calmPepe", opacity: calmOpacity)
-                    ImageView(image: "funnyPepe", opacity: funnyOpacity)
+                    ImageView(image: "angryPepe", opacity: currentPepe == .angry)
+                    ImageView(image: "calmPepe", opacity: currentPepe == .calm)
+                    ImageView(image: "funnyPepe", opacity: currentPepe == .funny)
                 }
                 Spacer()
                 Button {
@@ -52,16 +49,12 @@ struct ContentView: View {
 
         switch currentPepe {
         case .angry:
-            angryOpacity = false
-            calmOpacity.toggle()
             currentPepe = PepeController.calm
         case .calm:
-            calmOpacity.toggle()
-            funnyOpacity.toggle()
             currentPepe = PepeController.funny
         case .funny:
-            angryOpacity.toggle()
-            funnyOpacity = false
+            currentPepe = PepeController.angry
+        case .off:
             currentPepe = PepeController.angry
         }
     }
